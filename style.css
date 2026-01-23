@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'system-ui','sans-serif';
+}
+
+header{
+    width: 100%;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background: #003;
+    backdrop-filter: blur(20px);
+    height: 100vh;
+}
+
+.nav-bar{
+    width: 100%;
+    padding: 20px 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    transition: all 0.3 ease-in-out;
+}
+
+.nav-bar h2{
+    color: #be11e0;
+    font-weight: 800;
+    font-size: 30px;
+}
+
+.nav{
+    padding: 10px;
+}
+
+.nav .nav-link{
+    margin-right: 15px;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav .nav-link::after{
+    content: '';
+    position: absolute;
+    width: 0;
+    bottom: -4px; 
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg,#0652e0,#be11e0);
+    transition: width 0.3s ease;
+    border-radius: 10px;
+}
+
+.nav-link:hover {
+    color: #0652e0;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+
+.home{
+    text-align: center;
+    height: 100vh;
+    width: 100%;
+    color: #fff;
+    padding: 90px 30px 10px 30px;
+}
+
+.home h1{
+    font-size: 60px;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+.home .s {
+    color: #be11e0;
+}
+
+.home .info-cont{
+    text-align: center;
+    padding: 20px;
+}
+
+.home .info{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    padding: 40px;
+}
+
+.home .info.info1{
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.home .info.info2{
+    padding: 0 250px;
+}
+
+.home .btn{
+    padding: 15px;
+    background: linear-gradient(45deg,#0652e0,#be11e0);
+    border-radius: 30px;
+    color: #fff;
+    border: transparent 2px;
+    transition: .3s ; 
+    text-align: center;
+    backdrop-filter: blur(20px);
+}
+
+.home .btn a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.home .btn:hover{
+    box-shadow:0 0 15px  #be11e0, 0 0 15px #0652e0 ;
+    cursor: pointer;
+}
