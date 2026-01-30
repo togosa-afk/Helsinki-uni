@@ -163,13 +163,14 @@ body{
     flex-direction: column;
 }
 
-.inner-card .img{
+.inner-card .icon{
     width: 350px;
     margin-bottom: 5px;
     border-radius: 20px;
 }
 
-.img img {
-    width: 350px;
-    border-radius: 20px;
+.icon i{
+    font-size: 100px;
+    color: #be11e0;
+    font-weight: 900;
 }
