@@ -1,4 +1,5 @@
 browser and server
+task 0.4
 
 browser -> server post https://studies.cs.helsinki.fi/exampleapp/new_note
 activate server
@@ -28,6 +29,7 @@ deactivate server
 
 
 SPA pages 
+task 0.5
 
 browser -> server GET https://studies.cs.helsinki.fi/exampleapp/spa
 activate server
@@ -44,7 +46,11 @@ activate server
 server -> browser  Javascript file
 deactivate server
 
-browser -> server POST https://studies.cs.helsinki.fi/exampleapp/data.json
+
+SPA pages
+task 0.6 
+
+browser -> server POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
 activate server
 server -> browser  HTML 201 created
 deactivate server
