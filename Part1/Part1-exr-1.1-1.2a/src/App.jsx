@@ -1,64 +1,102 @@
+import { useState } from "react"
 
 
-// Header component
-const Header = ({courseObj}) => {
-  console.log("header props" + courseObj.name)
+const Feedback = () => (
+  <h1>give feedback</h1>
+)
+
+
+const Statistics = () => (
+  <h2>Statstics</h2>
+)
+
+const Button = (props) => {
   return (
-    <h1>{courseObj.name}</h1>
+    <button onClick={props.onClick}>{props.text}</button>
   )
 }
 
-// Course componenet
-const Course = ({courseObj}) => {
-  //console.log("course props.parts : " + props.courseObj.parts[0].name)
-  const parts = courseObj.parts;
-  //parts.map(part => <p key={part.name}>name of part is :  {part.name} and name of exercise is : {part.exercises} </p>)
-  return(
-    <>
-    {  
-      parts.map(part => <p key={part.name}>name of part is :  {part.name} and name of exercise is : {part.exercises} </p>)
-    }
-    </>
+
+//? component has text and value
+
+const Reviwe = (props) => {
+  return (
+    <p>{props.text} : {props.value} </p>
   )
 }
 
-// total component
-const Total = ({total}) =>{
-  console.log("Total props : " + total)
-  return(
+//* all component
+
+const All = ({all}) => {
+  if(all.length === 0 ){
+    return (
+      <p>No reviwes yet </p>
+    )
+  }
+  return (
+    <p>All reviwes is {all.length} </p>
+  )
+}
+
+//* average component 
+
+const Average = ({all, value, good }) => {
+  const average = value / all.length
+  const percentage = (good/10)*100
+
+  if(all.length === 0 ){
+    return(
+      <p>No rate yet </p>
+    )
+  }
+  return (
     <div>
-      <p>The total number of exercises is : {total}</p>
+    <p>average is : {average} </p>
+    <p> positive is : {percentage} % </p>
     </div>
   )
 }
 
 const App = () => {
-  const courseObj = {
-    parts:[
-      {name:"Part 0-Fundamentals of how web applications work", exercises:6},
-      {name:"Part 1-React Basics", exercises:14},
-      {name:"Part 2-Communication with the server", exercises:20},//from here I have not completed the parts below
-      {name:"Part 3-Server programming with NodeJS's Express library", exercises:22},
-      {name:"Part 4-Express application testing, user management", exercises:23},
-      {name:"Part 5-Testing a React application", exercises:23},
-      {name:"Part 6-Advanced space management", exercises:24},
-      {name:"Part 7-React router, custom hooks, style libraries and webpack", exercises:21},
-      {name:"Part 8-GraphQL", exercises:26},
-      {name:"Part 9TypeScript", exercises:30},
-      {name:"Part 10-React Native", exercises: 27},
-      {name:"Part 11CI/CD", exercises: 21},
-      {name:"Part 12-Container technology", exercises: 22},
-      {name:"Part 13Using a relational database", exercises: 25}//I have not completed this part
-    ],
-    name : 'Full Stack application development' 
+
+  const [good, setGood] = useState(0)
+  const [neutral, setNeutral] = useState(0)
+  const [bad, setBad] = useState(0)
+  const [all, setAll] = useState([])
+  const [value , setValue] = useState(0)
+
+
+  const handelGood = () => {
+    setAll(all.concat('G'))
+    setGood(good + 1 )
+    setValue(value + 1)
   }
-  const total = courseObj.parts[0].exercises + courseObj.parts[1].exercises + courseObj.parts[2].exercises + courseObj.parts[3].exercises + courseObj.parts[4].exercises + courseObj.parts[5].exercises + courseObj.parts[6].exercises + courseObj.parts[7].exercises + courseObj.parts[8].exercises + courseObj.parts[9].exercises + courseObj.parts[10].exercises + courseObj.parts[11].exercises + courseObj.parts[12].exercises
+
+  const handelNeutral = () => {
+    setAll(all.concat('N'))
+    setNeutral(neutral + 1)
+  }
+
+  const handelBad = () => {
+    setAll(all.concat('B'))
+    setBad(bad + 1)
+    setValue(value - 1)
+  }
+
   return (
     <>
-    <Header courseObj={courseObj}/>
-    <Course courseObj={courseObj} />
-    <Total total={total}/>
-    </>
+      <Feedback/>
+      <Button onClick={handelGood} text="good" />
+      <Button onClick={handelNeutral} text="neutral" />
+      <Button onClick={handelBad} text="bad" />
+      <Statistics/>
+      <Reviwe text="Good" value={good}  />
+      <Reviwe text="Neutral" value={neutral}  />
+      <Reviwe text="Bad" value={bad}  />
+      <Reviwe text="Rate" value={value}  />
+      <Average all={all} value={value} good={good}  />
+      <All all= {all} />
+    </>  
   )
 }
 export default App;
