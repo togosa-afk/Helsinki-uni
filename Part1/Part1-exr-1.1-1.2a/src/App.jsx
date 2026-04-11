@@ -5,55 +5,65 @@ const Feedback = () => (
   <h1>give feedback</h1>
 )
 
+//! Status copmponent
+const StatisticLine = ({text , value}) => {
+  return (
+    <>
+    {/* <p>{text} : {value} {exp} </p> */}
+    {/*
+     * ** extra trains from 1.11 to 1.14 **
+    */}
+    <tr>
+      <td>{text} </td>
+      <td>{value} </td>
+    </tr>
 
-const Statistics = () => (
-  <h2>Statstics</h2>
+    </>
+  )
+}
+
+//! Statistics component
+
+const Statistics = ({all, good, bad, neutral }) => {
+  const average =  ((good*1)+(neutral*0)+(bad*(-1))) / all.length
+    const percentage =(good/all.length)*100
+  
+    if(all.length === 0 ){
+      return(
+        <p>No rate yet </p>
+      )
+    }
+  
+return(
+  <>
+    <h2>Statstics</h2>
+    {/* <Status text='good' value={good}  />
+    <Status text='neutral' value={neutral} />
+    <Status text='bad' value={bad} />
+    <Status text='all' value={all.length} />
+    <Status text='average is' value={average} />
+    <Status text='positive is' value={percentage} exp="%"  />
+    <Status text='All reviwes is' value={all.length} /> */}
+
+    <table>
+    <StatisticLine text='good' value={good}  />
+    <StatisticLine text='neutral' value={neutral} />
+    <StatisticLine text='bad' value={bad} />
+    <StatisticLine text='all' value={all.length} />
+    <StatisticLine text='average is' value={average} />
+    <StatisticLine text='positive is' value={percentage} exp="%"  />
+    <StatisticLine text='All reviwes is' value={all.length}/>
+    </table>
+  </> 
 )
+}
+
+
+//! Button component
 
 const Button = (props) => {
   return (
     <button onClick={props.onClick}>{props.text}</button>
-  )
-}
-
-
-//? component has text and value
-
-const Reviwe = (props) => {
-  return (
-    <p>{props.text} : {props.value} </p>
-  )
-}
-
-//* all component
-
-const All = ({all}) => {
-  if(all.length === 0 ){
-    return (
-      <p>No reviwes yet </p>
-    )
-  }
-  return (
-    <p>All reviwes is {all.length} </p>
-  )
-}
-
-//* average component 
-
-const Average = ({all, value, good }) => {
-  const average = value / all.length
-  const percentage = (good/10)*100
-
-  if(all.length === 0 ){
-    return(
-      <p>No rate yet </p>
-    )
-  }
-  return (
-    <div>
-    <p>average is : {average} </p>
-    <p> positive is : {percentage} % </p>
-    </div>
   )
 }
 
@@ -63,13 +73,12 @@ const App = () => {
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
   const [all, setAll] = useState([])
-  const [value , setValue] = useState(0)
+  const value = good - bad ;
 
 
   const handelGood = () => {
     setAll(all.concat('G'))
     setGood(good + 1 )
-    setValue(value + 1)
   }
 
   const handelNeutral = () => {
@@ -80,7 +89,6 @@ const App = () => {
   const handelBad = () => {
     setAll(all.concat('B'))
     setBad(bad + 1)
-    setValue(value - 1)
   }
 
   return (
@@ -89,13 +97,7 @@ const App = () => {
       <Button onClick={handelGood} text="good" />
       <Button onClick={handelNeutral} text="neutral" />
       <Button onClick={handelBad} text="bad" />
-      <Statistics/>
-      <Reviwe text="Good" value={good}  />
-      <Reviwe text="Neutral" value={neutral}  />
-      <Reviwe text="Bad" value={bad}  />
-      <Reviwe text="Rate" value={value}  />
-      <Average all={all} value={value} good={good}  />
-      <All all= {all} />
+      <Statistics all={all} bad={bad} good={good} neutral={neutral} />
     </>  
   )
 }
