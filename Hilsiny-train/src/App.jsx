@@ -8,6 +8,7 @@ function App(props) {
   const [newNote, setNewNote] = useState("New note ...")
   const [showAll, setShowAll] = useState(true)
 
+  // function has event as it's attr
   const addEvent = (event) => {
     event.preventDefault()
     const noteObj = {
@@ -15,7 +16,6 @@ function App(props) {
       important: Math.random() < 0.5,
       id: String(notes.length + 1),
     }
-
     setNotes(notes.concat(noteObj))
     setNewNote('')
     console.log(`Boutton clicked ${event.target} `)
@@ -44,7 +44,7 @@ function App(props) {
         )}
       </ul>
 
-      <form onSubmit={addEvent} >
+      <form onSubmit={addEvent}>
         <input value={newNote} onChange={handelNoteChange} />
         <button type="submit">save</button>
       </form>
