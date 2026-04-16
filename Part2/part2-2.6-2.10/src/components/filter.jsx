@@ -3,7 +3,7 @@ import Names from './names.jsx'
 
 const Filter = ({persons}) => {
 
-
+    console.log(`person filter ${persons}`)
     const [filterName, setFilterName] = useState('')
 
     const personsToShow = persons.filter(person => 

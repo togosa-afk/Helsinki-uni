@@ -1,9 +1,9 @@
 
 
-const Names = ({persons}) => {
-    console.log(`persons content :  ${persons.content} `)
+const Names = ({persons , onClick}) => {
+    console.log(`persons name :  ${persons.name} `)
     return (
-        <li> {persons.name} {persons.number} </li>
+        <li> {persons.name} {persons.number} <button onClick={onClick}>delete</button> </li>
     )
 }
 
