@@ -8,7 +8,7 @@
     {
       "id": "2",
       "content": "Browser can execute only JavaScript",
-      "important": true
+      "important": false
     },
     {
       "id": "3",
@@ -44,6 +44,41 @@
       "content": "mohe",
       "important": true,
       "id": "Pr0jMlZA6vo"
+    },
+    {
+      "content": "New note ...",
+      "important": false,
+      "id": "UmBOOA1Rlso"
+    },
+    {
+      "content": "New note ...",
+      "important": true,
+      "id": "3Qy5gFB2S1E"
+    },
+    {
+      "content": "welcome",
+      "important": true,
+      "id": "OAIKZns5wQE"
+    },
+    {
+      "content": "New note ...",
+      "important": true,
+      "id": "9sK5xWTDPTk"
+    },
+    {
+      "content": "New note ...",
+      "important": false,
+      "id": "wu_mnEiN1PQ"
+    },
+    {
+      "content": "New note ...",
+      "important": true,
+      "id": "eqxDQIcto6w"
+    },
+    {
+      "content": "hi",
+      "important": true,
+      "id": "41A4kgswoaY"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
