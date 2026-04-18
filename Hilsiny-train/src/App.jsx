@@ -9,7 +9,7 @@ import './index.css'
 function App() {
 
   const [notes, setNotes] = useState([])
-  const [newNote, setNewNote] = useState("New note ...")
+  const [newNote, setNewNote] = useState('')
   const [showAll, setShowAll] = useState(true)
   const [errorMessage, setErrorMessage] = useState(null)
   const [successMessage, setSuccessMessage] = useState(null)
@@ -17,7 +17,6 @@ function App() {
 
   // get finction 
   const hook = () => {
-    console.log('hook')
     noteService.getAll().then(initialNotes => {
       setNotes(initialNotes)
     })
