@@ -1,8 +1,24 @@
 const express = require('express');
+const morgan = require('morgan');
+const cors = require('cors');
 
 const app = express();
 
+
+const corsOption = {
+  origin: 'http://localhost:5173',
+  optionsSuccessStatus: 200
+}
+
+// app.use(morgan('tiny'));
 app.use(express.json())
+app.use(cors(corsOption))
+
+morgan.token('body' , (request , response) => {
+  return JSON.stringify(request.body)
+})
+
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'))
 
 let notes = [
   {
@@ -83,7 +99,25 @@ app.post('/api/notes/',(request, response) => {
   response.json(note)
 })
 
-const PORT = 3001;
+app.patch('/api/notes/:id', (request, response) => {
+  const id = request.params.id;
+  const body = request.body;
+
+  const noteIndex = notes.findIndex(n => n.id === id);
+  if (noteIndex === -1) {
+    return response.status(404).json({ error: 'Note not found' });
+  }
+
+  // Update only provided fields
+  const updatedNote = {
+    ...notes[noteIndex],
+    ...body
+  };
+  notes[noteIndex] = updatedNote;
+  response.json(updatedNote);
+});
+
+const PORT = process.env.PORT || 3001;
 
 app.listen(PORT)
 

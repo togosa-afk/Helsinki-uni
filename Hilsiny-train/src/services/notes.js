@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseURL = 'http://localhost:3001/notes'
+const baseURL = 'http://localhost:3001/api/notes'
 
 const getAll = () => {
     const requests = axios.get(baseURL)
@@ -13,7 +13,7 @@ const create = (newObject) => {
 }
 
 const updateURL = (id , newObject) => {
-    const requests = axios.put(`${baseURL}/${id}` , newObject)
+    const requests = axios.patch(`${baseURL}/${id}` , newObject)
     return requests.then(response => response.data)
 }
 
