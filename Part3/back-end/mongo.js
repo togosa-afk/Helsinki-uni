@@ -1,29 +1,31 @@
 
-const mongoose = require('mongoose')
-require('dotenv').config()
-if (process.argv.length < 3) {
-  console.log('give password as argument')
-  process.exit(1)
-}
+// const mongoose = require('mongoose')
 
-const password = process.argv[2]
 
-const url = `mongodb+srv://m422642389_db_user:${password}@cluster0.6om5wxk.mongodb.net/noteApp?retryWrites=true&w=majority&appName=Cluster0`
+// require('dotenv').config()
+// if (process.argv.length < 3) {
+//   console.log('give password as argument')
+//   process.exit(1)
+// }
 
-mongoose.set('strictQuery',false)
+// const password = process.argv[2]
 
-mongoose.connect(url, { family: 4 })
+// const url = `mongodb+srv://m422642389_db_user:${password}@cluster0.6om5wxk.mongodb.net/noteApp?retryWrites=true&w=majority&appName=Cluster0`
 
-const noteSchema = new mongoose.Schema({
-  content: String,
-  important: Boolean,
-})
+// mongoose.set('strictQuery',false)
 
-const Note = mongoose.model('Note', noteSchema)
+// mongoose.connect(url, { family: 4 })
 
-Note.find({}).then(result => {
-  result.forEach(note => {
-    console.log(note)
-  })
-  mongoose.connection.close()
-})
+// const noteSchema = new mongoose.Schema({
+//   content: String,
+//   important: Boolean,
+// })
+
+// const Note = mongoose.model('Note', noteSchema)
+
+// Note.find({}).then(result => {
+//   result.forEach(note => {
+//     console.log(note)
+//   })
+//   mongoose.connection.close()
+// })
