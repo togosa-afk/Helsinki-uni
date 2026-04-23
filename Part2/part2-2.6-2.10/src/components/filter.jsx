@@ -1,28 +1,31 @@
 import { useState } from 'react'
 import Names from './names.jsx'
 
-const Filter = ({persons}) => {
+const Filter = ({ persons }) => {
+    console.log('Type of persons:', typeof persons)
+    console.log('Is Array?:', Array.isArray(persons))
+    console.log('Value of persons:', persons)
 
     console.log(`person filter ${persons}`)
     const [filterName, setFilterName] = useState('')
 
-    const personsToShow = persons.filter(person => 
-        person.name.toLowerCase().includes(filterName.toLowerCase())
-    )
+    const personsToShow = (persons || []).filter(person => {
+        return person.name.toLowerCase().includes(filterName.toLowerCase())
+    })
 
     const handleFilterChange = (event) => {
         setFilterName(event.target.value)
     }
 
-    return(
+    return (
         <>
-        <h3>filtered names</h3>
-        <p>filter shown with <input type="text" value={filterName} onChange={handleFilterChange} /></p>
-        <ul>
-            {personsToShow.map(person =>  
-            <Names key={person.id} persons={person} />
-            )}
-        </ul>
+            <h3>filtered names</h3>
+            <p>filter shown with <input type="text" value={filterName} onChange={handleFilterChange} /></p>
+            <ul>
+                {personsToShow.map(person =>
+                    <Names key={person.id} persons={person} />
+                )}
+            </ul>
         </>
     )
 

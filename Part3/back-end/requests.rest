@@ -1,17 +1,10 @@
-GET http://localhost:3001/api/notes
-
-###
-
-GET http://localhost:3001/api/notes/1
-
-###
-DELETE http://localhost:3001/api/notes/2
-
-###
-POST http://localhost:3001/api/notes
+Post http://localhost:3001/api/notes
 Content-Type: application/json
 
 {
-    "content": "test of  .rest",
+    "content": "tol",
     "important": true
 }
+
+###
+GET http://localhost:3001/api/notes

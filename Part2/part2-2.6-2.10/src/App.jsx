@@ -69,7 +69,20 @@ const App = () => {
       }, 5000)
       setNewName('')
       setNumber('')
-    })
+    }).catch(error => {
+        let message = 'حدث خطأ غير متوقع'
+
+        if (error.response && error.response.data && error.response.data.error) {
+          // لو السيرفر بعث رسالة فالي ديشن (الوضع الطبيعي)
+          message = error.response.data.error
+        } else {
+          // لو السيرفر طافي أو الرابط غلط
+          message = error.message
+        }
+
+        setErrorMessage(message)
+        setTimeout(() => setErrorMessage(null), 5000)
+      })
   }
 
   const handelPesonChange = (event) => {

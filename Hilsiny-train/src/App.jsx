@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react"
-import axios from 'axios'
 import Note from "./components/Note.jsx"
 import noteService from './services/notes.js'
 import Notification from "./components/Notification.jsx"
@@ -36,7 +35,7 @@ function App() {
       .updateURL(id, changedNote).then(returnedNote => {
         setNotes(notes.map(note => note.id !== id ? note : returnedNote))
       })
-      .catch(error => {
+      .catch(()=> {
         setErrorMessage(
           `Note '${note.content}' was already removed from server`
         )
@@ -65,7 +64,7 @@ function App() {
       setTimeout(() => {
         setSuccessMessage(null)
       }, 5000)
-    }).catch(error => {
+    }).catch(() => {
       setErrorMessage(
         `server not responce`
       )
@@ -95,7 +94,7 @@ function App() {
       setTimeout(() => {
         setSuccessMessage(null)
       }, 5000)
-    }).catch(error => {
+    }).catch(() => {
       setErrorMessage(
         `server not responce`
       )
