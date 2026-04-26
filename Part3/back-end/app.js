@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const config = require('./utils/config')
 const logger = require('./utils/logger')
 const middleware = require('./utils/middleware')
-const notesRouter = require('./controls/notes')
+const notesRouter = require('./controls/note.js')
 
 const app = express()
 
