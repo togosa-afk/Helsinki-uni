@@ -1,12 +1,14 @@
+// handelDelete
 
-
-const Note = ({note , toggleImportance , handelDelete}) => {
+const Note = ({note , toggleImportance }) => {
   const lable = note.important ? 'make not important' : 'make important'
     return(
       <>
-      <li>{note.content}</li>
-      <button onClick={toggleImportance}>{lable}</button>
-      <button onClick={handelDelete}>delete</button>
+        <li className="note">
+          {note.content}
+          <button onClick={toggleImportance}>{lable}</button>
+        </li>
+        {/* <button onClick={handelDelete}>delete</button> */}
       </>
     )
 } 

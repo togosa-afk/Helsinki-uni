@@ -44,7 +44,7 @@ const App = () => {
 
       personService.updateURL(existPersond.id, changedNumber).then(returnedPerson => {
         setPersons(persons.map(p => p.id === existPersond.id ? returnedPerson : p))
-      }).catch(error => {
+      }).catch(() => {
         setErrorMessage(`name ${existPersond.name} not found `)
         setTimeout(() => {
           setErrorMessage(null)
