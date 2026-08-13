@@ -73,7 +73,7 @@ notesRouter.delete('/:id', async (request, response, next) => {
 
 
 // Put
-notesRouter.post('/:id', (request, response, next) => {
+notesRouter.put('/:id', (request, response, next) => {
   const { content, important } = request.body
 
   Note.findById(request.params.id)

@@ -27,6 +27,13 @@ app.use(middleware.requestLogger)
 app.use('/api/notes', notesRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
+// test path
+if (process.env.NODE_ENV === 'test') {
+  const testingRouter = require('./controls/testing')
+  app.use('/api/testing', testingRouter)
+  logger.info('connected to MongoDB')
+}
+
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
