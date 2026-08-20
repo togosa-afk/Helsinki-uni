@@ -2,83 +2,43 @@
   "notes": [
     {
       "id": "1",
-      "content": "HTML is easy",
+      "content": "Zustand is less complex than Redux",
       "important": true
     },
     {
       "id": "2",
-      "content": "Browser can execute only JavaScript",
+      "content": "React app benefits from custom hooks",
       "important": false
     },
     {
       "id": "3",
-      "content": "GET and POST are the most important methods of HTTP protocol",
+      "content": "Remember to sleep well",
       "important": true
     },
     {
-      "content": "moha",
+      "content": "hi",
       "important": false,
-      "id": "NhhVlM59ijs"
-    },
-    {
-      "content": "moha",
-      "important": true,
-      "id": "D36uQK7y7T4"
-    },
-    {
-      "content": "moha",
-      "important": true,
-      "id": "_wO_5RiVn_s"
-    },
-    {
-      "content": "New note ...",
-      "important": true,
-      "id": "JVCGTdw3psI"
-    },
-    {
-      "content": "moha",
-      "important": false,
-      "id": "T9Aeu-3XkWY"
-    },
-    {
-      "content": "mohe",
-      "important": true,
-      "id": "Pr0jMlZA6vo"
-    },
-    {
-      "content": "New note ...",
-      "important": false,
-      "id": "UmBOOA1Rlso"
-    },
-    {
-      "content": "New note ...",
-      "important": true,
-      "id": "3Qy5gFB2S1E"
+      "id": "B0hjGhdH838"
     },
     {
       "content": "welcome",
-      "important": true,
-      "id": "OAIKZns5wQE"
-    },
-    {
-      "content": "New note ...",
-      "important": true,
-      "id": "9sK5xWTDPTk"
-    },
-    {
-      "content": "New note ...",
       "important": false,
-      "id": "wu_mnEiN1PQ"
+      "id": "AzyL2CzTBlA"
     },
     {
-      "content": "New note ...",
-      "important": true,
-      "id": "eqxDQIcto6w"
+      "content": "balalba",
+      "important": false,
+      "id": "J1pxUtRTrME"
+    },
+    {
+      "content": "bafbkfd",
+      "important": false,
+      "id": "9cAW2hzOh1Y"
     },
     {
       "content": "hi",
-      "important": true,
-      "id": "41A4kgswoaY"
+      "important": false,
+      "id": "nMYAYUpSkig"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
